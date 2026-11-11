@@ -1,0 +1,170 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+
+:root {
+    --bg: #0b0b16;
+    --panel: #17172a;
+    --cyan: #00dce8;
+    --pink: #f02bb5;
+    --lime: #a8e63e;
+    --amber: #ffad32;
+    --purple: #a855e8;
+    --red: #f04b5b;
+    --green: #00c98b;
+    --text: #a5a7bd;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: var(--bg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Orbitron', sans-serif;
+    color: #fff;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 30px;
+    font-weight: 900;
+    letter-spacing: 4px;
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+p {
+    color: var(--text);
+    font-size: 12px;
+    letter-spacing: 4px;
+    margin-bottom: 35px;
+    text-align: center;
+}
+
+.music-board {
+    display: grid;
+    grid-template-columns: repeat(4, 120px);
+    gap: 14px;
+    padding: 25px;
+    background: var(--panel);
+    border: 1px solid #303047;
+    border-radius: 16px;
+}
+
+.music-key:nth-child(8n + 1),
+.music-key:nth-child(8n + 8) {
+    --pad: var(--cyan);
+}
+
+.music-key:nth-child(8n + 2) {
+    --pad: var(--pink);
+}
+
+.music-key:nth-child(8n + 3) {
+    --pad: var(--lime);
+}
+
+.music-key:nth-child(8n + 4) {
+    --pad: var(--amber);
+}
+
+.music-key:nth-child(8n + 5) {
+    --pad: var(--purple);
+}
+
+.music-key:nth-child(8n + 6) {
+    --pad: var(--red);
+}
+
+.music-key:nth-child(8n + 7) {
+    --pad: var(--green);
+}
+
+.music-key {
+    height: 130px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    background: #202033;
+    border: 1px solid var(--pad);
+    border-radius: 12px;
+    color: var(--pad);
+    cursor: pointer;
+    transition: background .15s ease;
+}
+
+.music-key kbd {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    background: none;
+}
+
+.music-key span {
+    color: var(--text);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.music-key:hover {
+    background: #292940;
+}
+
+.music-key.playing,
+.music-key:active {
+    background: var(--pad);
+    color: var(--bg);
+}
+
+.music-key.playing span,
+.music-key.playing kbd,
+.music-key:active span,
+.music-key:active kbd {
+    color: var(--bg);
+}
+
+@media (max-width: 550px) {
+    h1 {
+        font-size: 20px;
+        letter-spacing: 2px;
+    }
+
+    p {
+        font-size: 10px;
+        letter-spacing: 2px;
+        margin-bottom: 25px;
+    }
+
+    .music-board {
+        width: 100%;
+        max-width: 420px;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        padding: 15px;
+    }
+
+    .music-key {
+        height: 100px;
+        border-radius: 10px;
+        gap: 8px;
+    }
+
+    .music-key kbd {
+        font-size: 21px;
+    }
+
+    .music-key span {
+        font-size: 9px;
+        letter-spacing: 1px;
+    }
+}
